@@ -1,0 +1,288 @@
+<html>
+    <!--////phần heder của web///-->
+    <head>
+        <!-- ////////////// GỌI CÁC CSS //////////////  -->
+        <link rel="stylesheet" href= "CSS/login.css">
+        <link rel="stylesheet" href= "CSS/slidebar.css">
+        <link rel="stylesheet" href= "CSS/screen_1.css">
+        <link rel="stylesheet" href= "CSS/screen_main.css">
+        
+        <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+        <title>Scada hệ thống giám sát trên internet</title>
+        <script src = "socket.io/socket.io.js"></script>
+        <script src = "js/FC1_Common.js"></script>
+        <script src = "js/FC2_UserManagement.js"></script>
+        <script src = "js/FC3_MainScreen.js"></script>
+        <script src = "js/FC4_Screen1.js"></script>
+        <script>
+            var socket = io("localhost:3000") // IP tĩnh (hoặc IP động, hoặc localhost)
+        </script>
+<!-- ////////////// CHƯƠNG TRÌNH ĐĂNG NHẬP HỆ THỐNG //////////////  -->
+<div id="div_login">
+    <div id="id01" class="modal">
+        <form id = "modal-content1" class="modal-content animate">
+        <div id = "img_container" class="imgcontainer">
+            <span id = "closebtt" onclick="document.getElementById('id01').style.display='none'; logout();" class="close" title="Close Modal">&times;</span>
+            <img decoding="async" id = "img_avatar" src="images/kma.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div id = "log_container" class="container">
+            <label for="uname"><b>Username</b></label>
+            <input id = "inputuser" type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input id = "inputpass" type="password" placeholder="Enter Password" name="psw" required>
+
+            <button id = "bttlogin1" type="button" onclick="login();">Login</button>
+            <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div id = "login_container" class="container" style="background-color:#f1f1f1">
+            <button id = "bttcancle" type="button" onclick="document.getElementById('id01').style.display='none'; logout();" class="cancelbtn">Cancel</button>
+            <span id = "psw" class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+        </form>
+    </div>
+</div>
+    </head>
+    <!-- Phần thân của website -->
+<body>
+    <!-- ////////////// Code cho slidebar////////////// -->
+    <div id = "slidebar">
+        <!--Nút đăng nhập/đăng xuất-->
+          <button id="bttLogin" class="btn" onclick="login();
+           window.location.reload();
+           ">ĐĂNG NHẬP</button>
+           <button id="bttLogout" class="btn" onclick="logout();
+           ">ĐĂNG XUẤT</button>
+        <!--Nút chọn màn hình chính-->
+            <button id="btt_Screen_Main" onclick="
+            fn_ScreenChange('Screen_Main','Screen_1');
+            ">MÀN HÌNH AUTO</button>
+        <!--Nút chọn màn hình manu-->
+            <button id="btt_Screen_1" onclick="
+            fn_ScreenChange('Screen_1','Screen_Main');
+            ">MÀN HÌNH MANU</button>
+        
+    </div>              
+<!-- //////////////Code cho màn hình auto////////////// -->
+    <div id = "Screen_Main">
+        <!-- //////////////HÌNH NÊN////////////// -->
+            <img src="images/MANU.png">
+        <!-- Tạo bơm có tên là bơm 1 -->
+            <img id = "bom_1_AUTO" ><script> fn_SymbolStatus("bom_1_AUTO", "motor1", "bom1") </script>
+        <!-- Symbol bơm 2 -->
+            <img id = "bom_2_AUTO" ><script> fn_SymbolStatus("bom_2_AUTO", "motor1", "bom2") </script>
+        <!-- Symbol bơm 3 -->
+            <img id = "bom_3_AUTO" ><script> fn_SymbolStatus("bom_3_AUTO", "motor1", "bom3") </script>
+        <!-- Symbol bơm 4 -->
+            <img id = "bom_4_AUTO" ><script> fn_SymbolStatus("bom_4_AUTO", "motor1", "bom4") </script>
+        <!-- Symbol bơm 5 -->
+            <img id = "bom_5_AUTO" ><script> fn_SymbolStatus("bom_5_AUTO", "motor1", "bom5") </script>
+        <!-- Symbol bơm 6 -->
+            <img id = "bom_6_AUTO" ><script> fn_SymbolStatus("bom_6_AUTO", "motor1", "bom6") </script>
+        <!-- Symbol bơm P1 -->
+            <img id = "bom_p1_AUTO" ><script> fn_SymbolStatus("bom_p1_AUTO", "motor1", "bom_P1") </script>
+        <!-- Symbol bơm P2 -->
+            <img id = "bom_p2_AUTO" ><script> fn_SymbolStatus("bom_p2_AUTO", "motor1", "bom_P2") </script>
+        <!-- Symbol bơm BP3 -->
+            <img id = "bom_p3_AUTO" ><script> fn_SymbolStatus("bom_p3_AUTO", "motor1", "bom_P3") </script>
+        <!-- Symbol bơm BP4 -->
+            <img id = "bom_p4_AUTO" ><script> fn_SymbolStatus("bom_p4_AUTO", "motor1", "bom_P4") </script>
+
+        <!-- Đèn báo lỗi b1 -->
+            <img id = "loi_bom_1_AUTO" ><script> fn_SymbolStatus("loi_bom_1_AUTO", "loi1", "LAMP_RELAY1") </script>
+        <!-- Đèn báo lỗi b2 -->
+            <img id = "loi_bom_2_AUTO" ><script> fn_SymbolStatus("loi_bom_2_AUTO", "loi1", "LAMP_RELAY2") </script>
+        <!-- Đèn báo lỗi b3 -->
+            <img id = "loi_bom_3_AUTO" ><script> fn_SymbolStatus("loi_bom_3_AUTO", "loi1", "LAMP_RELAY3") </script>
+        <!-- Đèn báo lỗi b4 -->
+            <img id = "loi_bom_4_AUTO" ><script> fn_SymbolStatus("loi_bom_4_AUTO", "loi1", "LAMP_RELAY4") </script>
+        <!-- Đèn báo lỗi b5 -->
+            <img id = "loi_bom_5_AUTO" ><script> fn_SymbolStatus("loi_bom_5_AUTO", "loi1", "LMAP_RELAY5") </script>
+        <!-- Đèn báo lỗi b6 -->
+            <img id = "loi_bom_6_AUTO" ><script> fn_SymbolStatus("loi_bom_6_AUTO", "loi1", "LAMP_RELAY6") </script>
+        <!-- Đèn báo lỗi bp1 -->
+            <img id = "loi_bom_p1_AUTO" ><script> fn_SymbolStatus("loi_bom_p1_AUTO", "loi1", "LAMP_RELAY_P1") </script>
+        <!-- Đèn báo lỗi bp2 -->
+            <img id = "loi_bom_p2_AUTO" ><script> fn_SymbolStatus("loi_bom_p2_AUTO", "loi1", "LAMP_RELAY_P2") </script>
+        <!-- Đèn báo lỗi bp3 -->
+            <img id = "loi_bom_p3_AUTO" ><script> fn_SymbolStatus("loi_bom_p3_AUTO", "loi1", "LAMP_RELAY_P3") </script>
+        <!-- Đèn báo lỗi bp4 -->
+            <img id = "loi_bom_p4_AUTO" ><script> fn_SymbolStatus("loi_bom_p4_AUTO", "loi1", "LAMP_RELAY_P4") </script>
+        
+        <!-- //////////////NÚT NHẤN ĐIỀU KHIỂN////////////// -->
+        <!-- Bật hệ thống -->
+            <button id="ON_AUTO" onclick= "socket.emit('cmd_On', true);">ON SYMTEM</button>
+            <script>fn_btt_Color('DEN_ACTIVE', 'ON_AUTO', 'rgb(0, 255, 15)', 'gray')</script>
+    
+        <!-- Tắt hệ thống -->
+            <button id="OFF_AUTO" onclick= "socket.emit('cmd_Off', true);">OFF SYMTEM</button>
+            <script>fn_btt_Color('DEN_ACTIVE', 'OFF_AUTO', 'gray', 'rgb(255, 0, 0)')</script>
+
+        <!-- Chọn chế độ tự động -->
+            <button id="BUTTON_AUTO_1" onclick= "socket.emit('cmd_Mode_Auto', true);">AUTO</button>
+            <script>fn_btt_Color('DEN_AUTO', 'BUTTON_AUTO_1', 'rgb(0, 255, 15)', 'gray')</script>
+        
+        <!-- //////////////HIỂN THỊ DỮ LIỆU IO FIELD////////////// -->
+        <!-- Mực nước bồn 1 -->
+            <input id="tbx_act_Weight1" disabled="disabled" type="text" />   
+            <script>fn_IOFieldDataShow("CV", "tbx_act_Weight1", 0)</script> 
+            <br /><br />
+        <!-- Mực nước bồn 2 -->
+            <input id="tbx_act_Weight2" disabled="disabled" type="text" />   
+            <script>fn_IOFieldDataShow("CV1", "tbx_act_Weight2", 0)</script> 
+            <br /><br />
+        
+    </div> 
+<!-- //////////////Code cho màn hình MANU////////////// -->
+    <div id = "Screen_1">
+     <!-- //////////////HÌNH NÊN////////////// -->
+     <img src="images/MANU.png">
+     <!-- Tạo bơm có tên là bơm 1 -->
+         <img id = "MN_bom_1" ><script> fn_SymbolStatus("MN_bom_1", "motor1", "bom1") </script>
+     <!-- Symbol bơm 2 -->
+         <img id = "MN_bom_2" ><script> fn_SymbolStatus("MN_bom_2", "motor1", "bom2") </script>
+     <!-- Symbol bơm 3 -->
+         <img id = "MN_bom_3" ><script> fn_SymbolStatus("MN_bom_3", "motor2", "bom3") </script>
+     <!-- Symbol bơm 4 -->
+         <img id = "MN_bom_4" ><script> fn_SymbolStatus("MN_bom_4", "motor1", "bom4") </script>
+     <!-- Symbol bơm 5 -->
+         <img id = "MN_bom_5" ><script> fn_SymbolStatus("MN_bom_5", "motor1", "bom5") </script>
+     <!-- Symbol bơm 6 -->
+         <img id = "MN_bom_6" ><script> fn_SymbolStatus("MN_bom_6", "motor1", "bom6") </script>
+     <!-- Symbol bơm P1 -->
+         <img id = "MN_bom_p1" ><script> fn_SymbolStatus("MN_bom_p1", "motor1", "bom_P1") </script>
+     <!-- Symbol bơm P2 -->
+         <img id = "MN_bom_p2" ><script> fn_SymbolStatus("MN_bom_p2", "motor1", "bom_P2") </script>
+     <!-- Symbol bơm BP3 -->
+         <img id = "MN_bom_p3" ><script> fn_SymbolStatus("MN_bom_p3", "motor1", "bom_P3") </script>
+     <!-- Symbol bơm BP4 -->
+         <img id = "MN_bom_p4" ><script> fn_SymbolStatus("MN_bom_p4", "motor1", "bom_P4") </script>
+     <!-- Đèn báo lỗi b1 -->
+         <img id = "loi_bom_1_mn" ><script> fn_SymbolStatus("loi_bom_1_mn", "loi1", "LAMP_RELAY1") </script>
+     <!-- Đèn báo lỗi b2 -->
+         <img id = "loi_bom_2_mn" ><script> fn_SymbolStatus("loi_bom_2_mn", "loi1", "LAMP_RELAY2") </script>
+     <!-- Đèn báo lỗi b3 -->
+         <img id = "loi_bom_3_mn" ><script> fn_SymbolStatus("loi_bom_3_mn", "loi1", "LAMP_RELAY3") </script>
+     <!-- Đèn báo lỗi b4 -->
+         <img id = "loi_bom_4_mn" ><script> fn_SymbolStatus("loi_bom_4_mn", "loi1", "LAMP_RELAY4") </script>
+     <!-- Đèn báo lỗi b5 -->
+         <img id = "loi_bom_5_mn" ><script> fn_SymbolStatus("loi_bom_5_mn", "loi1", "LMAP_RELAY5") </script>
+     <!-- Đèn báo lỗi b6 -->
+         <img id = "loi_bom_6_mn" ><script> fn_SymbolStatus("loi_bom_6_mn", "loi1", "LAMP_RELAY6") </script>
+     <!-- Đèn báo lỗi bp1 -->
+         <img id = "loi_bom_p1_mn" ><script> fn_SymbolStatus("loi_bom_p1_mn", "loi1", "LAMP_RELAY_P1") </script>
+     <!-- Đèn báo lỗi bp2 -->
+         <img id = "loi_bom_p2_mn" ><script> fn_SymbolStatus("loi_bom_p2_mn", "loi1", "LAMP_RELAY_P2") </script>
+     <!-- Đèn báo lỗi bp3 -->
+         <img id = "loi_bom_p3_mn" ><script> fn_SymbolStatus("loi_bom_p3_mn", "loi1", "LAMP_RELAY_P3") </script>
+     <!-- Đèn báo lỗi bp4 -->
+         <img id = "loi_bom_p4_mn" ><script> fn_SymbolStatus("loi_bom_p4_mn", "loi1", "LAMP_RELAY_P4") </script>
+     <!-- //////////////NÚT NHẤN ĐIỀU KHIỂN////////////// -->
+    <!-- Bật hệ thống -->
+      <button id="MN_ON" onclick= "socket.emit('cmd_On', true);">ON SYMTEM</button>
+      <script>fn_btt_Color('DEN_ACTIVE', 'MN_ON', 'rgb(0, 255, 15)', 'gray')</script>
+    
+    <!-- Tắt hệ thống -->
+      <button id="MN_OFF" onclick= "socket.emit('cmd_Off', true);">OFF SYMTEM</button>
+      <script>fn_btt_Color('DEN_ACTIVE', 'MN_OFF', 'gray', 'rgb(255, 0, 0)')</script>
+      
+    <!-- Chọn chế độ bằng tay -->
+      <button id="MN_BUTTON_MANU" onclick= "socket.emit('cmd_Mode_Manu', true);">MANU</button>
+      <script>fn_btt_Color('DEN_MANUAL', 'MN_BUTTON_MANU', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- Bơm 1 Open -->
+      <button id="btt_scrManu_B1_Open" onclick= "socket.emit('cmd_manu_B1_open', true);">ON</button>
+      <script>fn_btt_Color('bom1', 'btt_scrManu_B1_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- Bơm 1 Close -->
+      <button id="btt_scrManu_B1_Close" onclick= "socket.emit('cmd_Manu_B1_Close', true);">OFF</button>
+      <script>fn_btt_Color('bom1', 'btt_scrManu_B1_Close', 'gray', 'rgb(255, 0, 0)')</script>  
+
+    <!-- Bơm 2 Open -->
+      <button id="btt_scrManu_B2_Open" onclick= "socket.emit('cmd_Manu_B2_open', true);">ON</button>
+      <script>fn_btt_Color('bom2', 'btt_scrManu_B2_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- Bơm 2 Close -->
+      <button id="btt_scrManu_B2_Close" onclick= "socket.emit('cmd_Manu_B2_close', true);">OFF</button>
+      <script>fn_btt_Color('bom2', 'btt_scrManu_B2_Close', 'gray', 'rgb(255, 0, 0)')</script>    
+
+    <!-- bơm 3 Open -->
+      <button id="btt_scrManu_B3_Open" onclick= "socket.emit('cmd_Manu_B3_open', true);">ON</button>
+      <script>fn_btt_Color('bom3', 'btt_scrManu_B3_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- bơm 3 Close -->
+      <button id="btt_scrManu_B3_Close" onclick= "socket.emit('cmd_Manu_B3_close', true);">OFF</button>
+      <script>fn_btt_Color('bom3', 'btt_scrManu_B3_Close', 'gray', 'rgb(255, 0, 0)')</script>  
+
+    <!-- bơm 4 Open -->
+      <button id="btt_scrManu_B4_Open" onclick= "socket.emit('cmd_Manu_B4_open', true);">ON</button>
+      <script>fn_btt_Color('bom4', 'btt_scrManu_B4_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- bơm 4 Close -->
+      <button id="btt_scrManu_B4_Close" onclick= "socket.emit('cmd_Manu_B4_close', true);">OFF</button>
+      <script>fn_btt_Color('bom4', 'btt_scrManu_B4_Close', 'gray', 'rgb(255, 0, 0)')</script>
+
+    <!-- bơm 5 Open -->
+      <button id="btt_scrManu_B5_Open" onclick= "socket.emit('cmd_Manu_B5_open', true);">ON</button>
+      <script>fn_btt_Color('bom5', 'btt_scrManu_B5_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- bơm 5 Close -->
+      <button id="btt_scrManu_B5_Close" onclick= "socket.emit('cmd_Manu_B5_close', true);">OFF</button>
+      <script>fn_btt_Color('bom5', 'btt_scrManu_B5_Close', 'gray', 'rgb(255, 0, 0)')</script>
+
+    <!-- bơm 6 Open -->
+     <button id="btt_scrManu_B6_Open" onclick= "socket.emit('cmd_Manu_B6_open', true);">ON</button>
+     <script>fn_btt_Color('bom6', 'btt_scrManu_B6_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- bơm 6 Close -->
+      <button id="btt_scrManu_B6_Close" onclick= "socket.emit('cmd_Manu_B6_close', true);">OFF</button>
+      <script>fn_btt_Color('bom6', 'btt_scrManu_B6_Close', 'gray', 'rgb(255, 0, 0)')</script>
+
+    <!-- bơm BP1 Open -->
+      <button id="btt_scrManu_BP1_Open" onclick= "socket.emit('cmd_Manu_BP1_open', true);">ON</button>
+      <script>fn_btt_Color('bom_P1', 'btt_scrManu_BP1_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- bơm BP1 Close -->
+      <button id="btt_scrManu_BP1_Close" onclick= "socket.emit('cmd_Manu_BP1_close', true);">OFF</button>
+      <script>fn_btt_Color('bom_P1', 'btt_scrManu_BP1_Close', 'gray', 'rgb(255, 0, 0)')</script>
+
+    <!-- bơm BP2 Open -->
+      <button id="btt_scrManu_BP2_Open" onclick= "socket.emit('cmd_Manu_BP2_open', true);">ON</button>
+      <script>fn_btt_Color('bom_P2', 'btt_scrManu_BP2_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- bơm BP2 Close -->
+      <button id="btt_scrManu_BP2_Close" onclick= "socket.emit('cmd_Manu_BP2_close', true);">OFF</button>
+      <script>fn_btt_Color('bom_P2', 'btt_scrManu_BP2_Close', 'gray', 'rgb(255, 0, 0)')</script>
+
+    <!-- bơm BP3 Open -->
+      <button id="btt_scrManu_BP3_Open" onclick= "socket.emit('cmd_Manu_BP3_open', true);">ON</button>
+      <script>fn_btt_Color('bom_P3', 'btt_scrManu_BP3_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- bơm BP3 Close -->
+      <button id="btt_scrManu_BP3_Close" onclick= "socket.emit('cmd_Manu_BP3_close', true);">OFF</button>
+      <script>fn_btt_Color('bom_P3', 'btt_scrManu_BP3_Close', 'gray', 'rgb(255, 0, 0)')</script>
+
+    <!-- bơm BP4 Open -->
+      <button id="btt_scrManu_BP4_Open" onclick= "socket.emit('cmd_Manu_BP4_open', true);">ON</button>
+      <script>fn_btt_Color('bom_P4', 'btt_scrManu_BP4_Open', 'rgb(0, 255, 15)', 'gray')</script>
+
+    <!-- bơm BP4 Close -->
+      <button id="btt_scrManu_BP4_Close" onclick= "socket.emit('cmd_Manu_BP4_close', true);">OFF</button>
+      <script>fn_btt_Color('bom_P4', 'btt_scrManu_BP4_Close', 'gray', 'rgb(255, 0, 0)')</script>
+     
+    <!-- //////////////HIỂN THỊ DỮ LIỆU IO FIELD////////////// -->
+    <!-- Mực nước bồn 1 -->
+        <input id="tbx_act_Weight1_MN" disabled="disabled" type="text" />   
+        <script>fn_IOFieldDataShow("CV", "tbx_act_Weight1_MN", 0)</script> 
+        <br /><br />
+    <!-- Mực nước bồn 2 -->
+        <input id="tbx_act_Weight2_MN" disabled="disabled" type="text" />   
+        <script>fn_IOFieldDataShow("CV1", "tbx_act_Weight2_MN", 0)</script> 
+        <br /><br /> 
+    </div> 
+</body>
+</html>

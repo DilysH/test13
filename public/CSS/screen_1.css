@@ -1,0 +1,503 @@
+/*Màn hình manu*/
+#Screen_1 {
+    position: absolute;
+    left: 215px; top: 11px;
+    width: 800px; height: 790px;
+    background-color: rgb(15, 228, 210);
+}
+
+/*Bơm 1*/
+#MN_bom_1 {
+    position: absolute; 
+    left: 430px; top: 200px; 
+    width: 70px; height: 45px;
+}
+
+
+/*bơm 2*/
+#MN_bom_2 {
+    position: absolute; 
+    left: 460px; top: 230px; 
+    width: 70px; height: 45px;
+}
+
+
+/*Bơm 3*/
+#MN_bom_3 {
+    position: absolute; 
+    left: 690px; top: 325px; 
+    width: 70px; height: 45px;
+}
+/*Bơm 3*/
+#MN_bom_9 {
+    position: absolute; 
+    left: 200px; top: 325px; 
+    width: 70px; height: 45px;
+}
+
+/*Bơm 4*/
+#MN_bom_4 {
+    position: absolute; 
+    left: 1010px; top: 330px; 
+    width: 70px; height: 45px;
+}
+
+/*Bơm 5*/
+#MN_bom_5 {
+    position: absolute; 
+    left: 1060px; top: 650px; 
+    width: 70px; height: 45px;
+}
+
+/*Bơm 6*/
+#MN_bom_6 {
+    position: absolute; 
+    left: 1050px; top: 680px; 
+    width: 70px; height: 45px;
+}
+
+/*Bơm BP1*/
+#MN_bom_p1 {
+    position: absolute; 
+    left: 480px; top: 260px; 
+    width: 70px; height: 45px;
+}
+
+/*Bơm BP2*/
+#MN_bom_p2 {
+    position: absolute; 
+    left: 650px; top: 360px; 
+    width: 70px; height: 45px;
+}
+
+/*Bơm BP3*/
+#MN_bom_p3 {
+    position: absolute; 
+    left: 980px; top: 360px; 
+    width: 70px; height: 45px;
+}
+
+/*Bơm BP4*/
+#MN_bom_p4 {
+    position: absolute; 
+    left: 1030px; top: 725px; 
+    width: 70px; height: 45px;
+}
+
+/*đèn 1*/
+#loi_bom_1_mn {
+    position: absolute; 
+    left: 180px; top: 335px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn 2*/
+#loi_bom_2_mn {
+    position: absolute; 
+    left: 180px; top: 375px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn 3*/
+#loi_bom_3_mn {
+    position: absolute; 
+    left: 180px; top: 410px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn 4*/
+#loi_bom_4_mn {
+    position: absolute; 
+    left: 180px; top: 445px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn 5*/
+#loi_bom_5_mn {
+    position: absolute; 
+    left: 180px; top: 480px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn 6*/
+#loi_bom_6_mn {
+    position: absolute; 
+    left: 180px; top: 515px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn p1*/
+#loi_bom_p1_mn {
+    position: absolute; 
+    left: 180px; top: 555px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn p2*/
+#loi_bom_p2_mn {
+    position: absolute; 
+    left: 180px; top: 590px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn p3*/
+#loi_bom_p3_mn {
+    position: absolute; 
+    left: 180px; top: 625px; 
+    width: 30px; height: 30px;
+}
+
+/*đèn p4*/
+#loi_bom_p4_mn {
+    position: absolute; 
+    left: 180px; top: 660px; 
+    width: 30px; height: 30px;
+}
+/*Nút nhấn ON*/
+#MN_ON {
+    border: none; 
+    background-color: rgb(5, 190, 57); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 35px; 
+    left: 40px; top: 140px;
+}
+
+/*Nút nhấn OFF*/
+#MN_OFF {
+    border: none; 
+    background-color: rgb(242, 22, 29); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 35px; 
+    left: 190px; top: 140px;
+}
+
+/*Nút nhấn chế độ bằng tay*/
+#MN_BUTTON_MANU {
+    border: none; 
+    background-color: rgb(224, 151, 14); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 150px; height: 40px; 
+    left: 85px; top: 180px;
+}
+
+/*Nút nhấn b1 mở*/
+#btt_scrManu_B1_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 335px;
+}
+/*Nút nhấn b1 đóng*/
+#btt_scrManu_B1_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 335px;
+}
+
+/*Nút nhấn b2 mở*/
+#btt_scrManu_B2_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 375px;
+}
+/*Nút nhấn b2 đóng*/
+#btt_scrManu_B2_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 375px;
+}
+
+/*Nút nhấn b3 mở*/
+#btt_scrManu_B3_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 410px;
+}
+/*Nút nhấn b3 đóng*/
+#btt_scrManu_B3_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 410px;
+}
+
+/*Nút nhấn b4 mở*/
+#btt_scrManu_B4_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 445px;
+}
+/*Nút nhấn b4 đóng*/
+#btt_scrManu_B4_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 445px;
+}
+
+/*Nút nhấn b5 mở*/
+#btt_scrManu_B5_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 480px;
+}
+/*Nút nhấn b5 đóng*/
+#btt_scrManu_B5_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 480px;
+}
+
+/*Nút nhấn b6 mở*/
+#btt_scrManu_B6_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 515px;
+}
+/*Nút nhấn b6 đóng*/
+#btt_scrManu_B6_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 515px;
+}
+
+/*Nút nhấn bp1 mở*/
+#btt_scrManu_BP1_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 555px;
+}
+/*Nút nhấn bp1 đóng*/
+#btt_scrManu_BP1_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 555px;
+}
+
+/*Nút nhấn bp2 mở*/
+#btt_scrManu_BP2_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 590px;
+}
+/*Nút nhấn bp2 đóng*/
+#btt_scrManu_BP2_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 590px;
+}
+
+/*Nút nhấn bp3 mở*/
+#btt_scrManu_BP3_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 625px;
+}
+/*Nút nhấn bp3 đóng*/
+#btt_scrManu_BP3_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 625px;
+}
+
+/*Nút nhấn bp4 mở*/
+#btt_scrManu_BP4_Open {
+    border: none; 
+    background-color: rgb(0, 255, 42); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 120px; top: 660px;
+}
+/*Nút nhấn bp4 đóng*/
+#btt_scrManu_BP4_Close {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 55px; height: 25px; 
+    left: 220px; top: 660px;
+}
+
+/*Mực nước bồn 1*/
+#tbx_act_Weight1_MN {
+    position: absolute; 
+    left: 25px; top: 260px;  
+    width: 100px; height: 30px;
+}
+
+/*Mực nước bồn 2*/
+#tbx_act_Weight2_MN {
+    position: absolute; 
+    left: 175px; top: 260px;  
+    width: 100px; height: 30px;
+}
